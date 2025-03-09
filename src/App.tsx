@@ -33,10 +33,7 @@ function App() {
               I help businesses leverage artificial intelligence to drive growth, 
               efficiency, and innovation in the digital age.
             </p>
-            <div className="flex gap-4 justify-center">
-              <button className="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800">
-                Schedule a Demo
-              </button>
+            <div className="flex justify-center">
               <button className="border border-black px-8 py-3 rounded-full hover:bg-gray-50">
                 Learn More
               </button>
