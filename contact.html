@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Duativ - AI Innovation Agency</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <img src="public/duativ-logo-trans.png" alt="Duativ" class="logo-image">
+            </a>
+            <div class="nav-links">
+                <a href="/#about">About Me</a>
+                <a href="/#contact" class="btn-primary">Get in contact</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="contact-page">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p class="subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
+            
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+
+            <div id="success-message" class="success-message" style="display: none;">
+                Thank you for your message! We'll get back to you soon.
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>duativ</h3>
+                    <p>Empowering businesses through AI innovation</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">AI Consulting</a></li>
+                        <li><a href="#">AI Agents</a></li>
+                        <li><a href="#">AI Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">Medium</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 duativ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="contact.js"></script>
+</body>
+</html>
