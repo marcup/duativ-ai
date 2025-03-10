@@ -12,7 +12,7 @@ function App() {
               <img src="/duativ-logo.png" alt="Duativ" className="h-8" />
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900">About Me</a>
               <button className="bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">
                 Get Started
               </button>
@@ -111,16 +111,14 @@ function App() {
               <h3 className="text-lg font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>About Me</li>
-                <li>Blog</li>
                 <li>Contact</li>
               </ul>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Connect</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-                <li>GitHub</li>
+                <li><a href="https://www.linkedin.com/company/duativ" target="_blank" rel="noopener noreferrer" className="hover:text-white">LinkedIn</a></li>
+                <li><a href="https://www.facebook.com/duativ" target="_blank" rel="noopener noreferrer" className="hover:text-white">Facebook</a></li>
                 <li>Medium</li>
               </ul>
             </div>
