@@ -120,39 +120,66 @@ h1, h2, h3, h4, .logo {
 }
 
 .about-page h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
     text-align: center;
+    color: var(--black);
+    letter-spacing: -0.02em;
 }
 
 .about-intro {
     text-align: center;
     color: var(--gray-700);
-    font-size: 1.25rem;
-    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 4rem;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 1rem;
 }
 
 .about-content {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 1rem;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
 }
 
 .about-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
+}
+
+.about-section:last-child {
+    margin-bottom: 0;
 }
 
 .about-section h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--gray-900);
+    letter-spacing: -0.01em;
 }
 
 .about-section p {
     color: var(--gray-700);
-    line-height: 1.7;
+    line-height: 1.8;
+    font-size: 1.125rem;
+}
+
+.about-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.about-link:hover {
+    color: #ff5a1f;
+    text-decoration: underline;
 }
 
 /* Contact Page */
@@ -576,6 +603,20 @@ h1, h2, h3, h4, .logo {
     .logo-image {
         height: 38px;
     }
+
+    .about-page h1 {
+        font-size: 3rem;
+    }
+
+    .about-intro {
+        font-size: 1.25rem;
+        padding: 0 1.5rem;
+    }
+
+    .about-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -601,5 +642,28 @@ h1, h2, h3, h4, .logo {
     .contact-form {
         margin: 0 -1rem;
         border-radius: 0;
+    }
+
+    .about-page h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-intro {
+        font-size: 1.125rem;
+        padding: 0 1rem;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .about-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .about-section p {
+        font-size: 1rem;
     }
 }
