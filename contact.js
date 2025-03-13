@@ -1,8 +1,3 @@
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS
-emailjs.init("k-iyBjMeC5DL3yvnR");
-
 const form = document.getElementById('contact-form');
 const successMessage = document.getElementById('success-message');
 
