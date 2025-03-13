@@ -1,3 +1,4 @@
+// Initialize EmailJS and handle form submission
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
     (function() {
