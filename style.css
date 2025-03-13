@@ -250,6 +250,21 @@ h1, h2, h3, h4, .logo {
     margin-top: 2rem;
 }
 
+.error-message {
+    background: #EF4444;
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Button states */
+.btn-primary:disabled {
+    background: var(--gray-700);
+    cursor: not-allowed;
+}
+
 /* Services Section */
 .services {
     padding: 80px 0;

@@ -16,12 +16,32 @@ function parseXML(xmlString) {
 
 async function fetchMediumPosts() {
     try {
-        const CORS_PROXY = 'https://api.allorigins.win/raw?url=';
+        // Using a different CORS proxy service
+        const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
         const MEDIUM_RSS_URL = 'https://medium.com/feed/@duativai';
         
-        const response = await fetch(CORS_PROXY + encodeURIComponent(MEDIUM_RSS_URL));
+        const response = await fetch(CORS_PROXY + encodeURIComponent(MEDIUM_RSS_URL), {
+            headers: {
+                'Accept': 'application/xml, text/xml, */*'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const xml = await response.text();
+        
+        if (!xml) {
+            throw new Error('Empty response received');
+        }
+        
         const items = parseXML(xml);
+        
+        if (!items.length) {
+            throw new Error('No posts found in the feed');
+        }
+        
         return items.slice(0, 5); // Get only the latest 5 posts
     } catch (error) {
         console.error('Error fetching Medium posts:', error);
