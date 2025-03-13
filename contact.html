@@ -6,7 +6,7 @@
     <title>Contact Us - Duativ - AI Innovation Agency</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -35,12 +35,12 @@
             <form id="contact-form" class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="from_name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="reply_to" required>
                 </div>
                 
                 <div class="form-group">
@@ -101,9 +101,10 @@
 
     <script type="text/javascript">
         (function() {
+            // Initialize EmailJS when the page loads
             emailjs.init("k-iyBjMeC5DL3yvnR");
         })();
     </script>
-    <script type="module" src="contact.js"></script>
+    <script src="contact.js"></script>
 </body>
 </html>
