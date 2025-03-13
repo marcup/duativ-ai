@@ -1,48 +1,47 @@
-// Initialize EmailJS
-(function() {
-    emailjs.init("k-iyBjMeC5DL3yvnR");
-})();
+// Initialize EmailJS with public key
+emailjs.init("k-iyBjMeC5DL3yvnR");
 
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const successMessage = document.getElementById('success-message');
+// Form handling
+const form = document.getElementById('contact-form');
+const successMessage = document.getElementById('success-message');
 
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
+if (form) {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        try {
+            const result = await emailjs.send(
+                "service_lua2t0n",
+                "template_4rqjt86",
+                {
+                    from_name: form.from_name.value,
+                    reply_to: form.reply_to.value,
+                    subject: form.subject.value,
+                    message: form.message.value
+                }
+            );
 
-            // Disable the submit button
-            const submitButton = form.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
+            if (result.status === 200) {
+                form.reset();
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            alert('Failed to send message. Please try again later.');
+        }
+    });
+}
 
-            // Send the email
-            emailjs.sendForm('service_lua2t0n', 'template_4rqjt86', form, 'k-iyBjMeC5DL3yvnR')
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    form.reset();
-                    successMessage.style.display = 'block';
-                    setTimeout(() => {
-                        successMessage.style.display = 'none';
-                    }, 5000);
-                })
-                .catch(function(error) {
-                    console.error('FAILED...', error);
-                    alert('Sorry, there was an error sending your message. Please try again later.');
-                })
-                .finally(function() {
-                    submitButton.disabled = false;
-                });
-        });
-    }
+// Mobile menu functionality
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenuBtn && navLinks) {
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            mobileMenuBtn.classList.toggle('active');
-        });
-    }
-});
+if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        mobileMenuBtn.classList.toggle('active');
+    });
+}
