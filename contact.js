@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 
 // Initialize EmailJS
-emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+emailjs.init("k-iyBjMeC5DL3yvnR"); // Replace with your EmailJS public key
 
 const form = document.getElementById('contact-form');
 const successMessage = document.getElementById('success-message');
@@ -14,7 +14,7 @@ form.addEventListener('submit', async (e) => {
             'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
             'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
             form,
-            'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+            'k-iyBjMeC5DL3yvnR' // Replace with your EmailJS public key
         );
 
         // Clear the form
