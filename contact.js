@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
 
 // Initialize EmailJS
-emailjs.init("k-iyBjMeC5DL3yvnR"); // Replace with your EmailJS public key
+emailjs.init("k-iyBjMeC5DL3yvnR");
 
 const form = document.getElementById('contact-form');
 const successMessage = document.getElementById('success-message');
@@ -11,10 +11,10 @@ form.addEventListener('submit', async (e) => {
 
     try {
         await emailjs.sendForm(
-            'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-            'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+            'service_lua2t0n', // Your EmailJS service ID
+            'template_4rqjt86', // Your EmailJS template ID
             form,
-            'k-iyBjMeC5DL3yvnR' // Replace with your EmailJS public key
+            'k-iyBjMeC5DL3yvnR'
         );
 
         // Clear the form
