@@ -6,15 +6,6 @@
     <title>Contact Us - Duativ - AI Innovation Agency</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Load EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("k-iyBjMeC5DL3yvnR");
-        })();
-    </script>
-    <!-- Load our contact form script -->
-    <script src="contact.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -40,15 +31,15 @@
             <h1>Get in touch</h1>
             <p class="subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
             
-            <form id="contact-form" class="contact-form">
+            <form action="https://formspree.io/f/mzzebqgd" method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="from_name" required>
+                    <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="reply_to" required>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
@@ -106,5 +97,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn && navLinks) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>
