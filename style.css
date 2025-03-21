@@ -189,6 +189,24 @@ h1, h2, h3, h4, .logo {
     text-decoration: underline;
 }
 
+/* Mission Section */
+.mission-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.mission-content {
+    flex: 1;
+}
+
+.mission-image {
+    flex-shrink: 0;
+    width: 200px;
+    height: 200px;
+    margin-top: 2rem;
+}
+
 /* Founder Section */
 .founder-section {
     display: flex;
@@ -698,12 +716,14 @@ h1, h2, h3, h4, .logo {
         margin: 0 1rem;
     }
 
+    .mission-section,
     .founder-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
 
+    .mission-image,
     .founder-image {
         order: -1;
         margin-bottom: 2rem;
@@ -763,6 +783,7 @@ h1, h2, h3, h4, .logo {
         font-size: 1rem;
     }
 
+    .mission-image,
     .founder-image {
         width: 150px;
         height: 150px;
