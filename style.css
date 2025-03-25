@@ -351,6 +351,9 @@ h1, h2, h3, h4, .logo {
     border: 1px solid var(--gray-200);
     position: relative;
     overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .service-card::before {
@@ -753,6 +756,18 @@ h1, h2, h3, h4, .logo {
     border-bottom: 1px solid var(--gray-200);
     display: flex;
     align-items: center;
+}
+
+.service-features li a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.service-features li a:hover {
+    color: var(--gray-800);
+    text-decoration: underline;
 }
 
 .service-features li::before {
