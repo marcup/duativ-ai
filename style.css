@@ -454,6 +454,12 @@ h1, h2, h3, h4, .logo {
     width: 100%;
     height: 200px;
     overflow: hidden;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.blog-image:hover {
+    opacity: 0.9;
 }
 
 .blog-image img {

@@ -65,9 +65,9 @@ function createPostElement(post) {
     const imageUrl = firstImage ? firstImage.src : 'https://placehold.co/600x400/e5e7eb/1f2937?text=Duativ+Blog';
 
     article.innerHTML = `
-        <div class="blog-image">
+        <a href="${post.link}" target="_blank" rel="noopener" class="blog-image">
             <img src="${imageUrl}" alt="${post.title}">
-        </div>
+        </a>
         <div class="blog-content">
             <h2>${post.title}</h2>
             <div class="blog-meta">
