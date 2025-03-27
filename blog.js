@@ -16,13 +16,13 @@ function parseXML(xmlString) {
 
 async function fetchMediumPosts() {
     try {
-        // Using a different CORS proxy service
-        const CORS_PROXY = 'https://api.codetabs.com/v1/proxy?quest=';
+        // Using rss2json service instead of CORS proxy
+        const RSS2JSON_URL = 'https://api.rss2json.com/v1/api.json';
         const MEDIUM_RSS_URL = 'https://medium.com/feed/@duativai';
         
-        const response = await fetch(CORS_PROXY + encodeURIComponent(MEDIUM_RSS_URL), {
+        const response = await fetch(`${RSS2JSON_URL}?rss_url=${encodeURIComponent(MEDIUM_RSS_URL)}`, {
             headers: {
-                'Accept': 'application/xml, text/xml, */*'
+                'Accept': 'application/json'
             }
         });
         
@@ -30,21 +30,27 @@ async function fetchMediumPosts() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
-        const xml = await response.text();
+        const data = await response.json();
         
-        if (!xml) {
-            throw new Error('Empty response received');
+        if (data.status !== 'ok') {
+            throw new Error('Failed to fetch RSS feed');
         }
         
-        const items = parseXML(xml);
+        // Transform the response to match our expected format
+        return data.items.map(item => ({
+            title: item.title,
+            link: item.link,
+            pubDate: item.pubDate,
+            content: item.content,
+            contentSnippet: item.description.replace(/<[^>]*>/g, "")
+        })).slice(0, 5); // Get only the latest 5 posts
         
-        if (!items.length) {
-            throw new Error('No posts found in the feed');
-        }
-        
-        return items.slice(0, 5); // Get only the latest 5 posts
     } catch (error) {
         console.error('Error fetching Medium posts:', error);
+        const blogPostsContainer = document.getElementById('blog-posts');
+        if (blogPostsContainer) {
+            blogPostsContainer.innerHTML = '<p class="error">Unable to load blog posts. Please check our <a href="https://medium.com/@duativai" target="_blank" rel="noopener">Medium page</a> directly.</p>';
+        }
         return [];
     }
 }
@@ -66,7 +72,7 @@ function createPostElement(post) {
 
     article.innerHTML = `
         <a href="${post.link}" target="_blank" rel="noopener" class="blog-image">
-            <img src="${imageUrl}" alt="${post.title}">
+            <img src="${imageUrl}" alt="${post.title}" loading="lazy">
         </a>
         <div class="blog-content">
             <h2>${post.title}</h2>
@@ -83,11 +89,12 @@ function createPostElement(post) {
 
 async function displayPosts() {
     const blogPostsContainer = document.getElementById('blog-posts');
+    if (!blogPostsContainer) return;
+
     const posts = await fetchMediumPosts();
 
     if (posts.length === 0) {
-        blogPostsContainer.innerHTML = '<p class="error">Unable to load blog posts. Please try again later.</p>';
-        return;
+        return; // Error message already handled in fetchMediumPosts
     }
 
     blogPostsContainer.innerHTML = '';
@@ -97,4 +104,4 @@ async function displayPosts() {
 }
 
 // Initialize the blog
-displayPosts();
+document.addEventListener('DOMContentLoaded', displayPosts);
