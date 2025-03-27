@@ -139,12 +139,9 @@
             errorMessage.style.display = 'none';
 
             try {
-                const response = await fetch('https://formspree.io/f/mzzebqgd', {
+                const response = await fetch('https://hook.eu2.make.com/n54yl9nwy8p83x64kyx8doaugw57kjyh', {
                     method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    body: new FormData(form)
                 });
 
                 if (response.ok) {
