@@ -32,11 +32,12 @@
     <section class="contact-page">
         <div class="container">
             <h1>Whitepaper download</h1>
-            <p class="page-subtitle">Download our free whitepaper to learn more about AI Automation and how it can benefit your business. You'll also receive the option to book in a free-of-charge discovery call with Duativ's owner Marc to answer additional questions or to explore your AI Automation opportunities</p> 
+            <p class="page-subtitle">Receive a download link to our free whitepaper to learn more about AI Automation and how it can benefit your business. As a bonus you'll also receive the option to book a free-of-charge discovery call with Duativ's owner Marc to answer additional questions or to explore your AI Automation opportunities</p> 
             <div class="contact-form">
                 <img src="/public/whitepaper-promo.jpg" alt="Whitepaper Preview" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 2rem;">
                 
                 <form id="contact-form">
+                    <input type="hidden" id="source" name="source" value="">
                     <div class="form-group">
                         <label for="name">Your Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -110,6 +111,11 @@
     </footer>
 
     <script>
+        // Get source parameter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const sourceParam = urlParams.get('src') || '';
+        document.getElementById('source').value = sourceParam;
+
         // Mobile menu functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
