@@ -194,7 +194,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .about-logo {
-    height: 100px;
+    height: 140px; /* Updated from 100px to 140px (40% increase) */
     width: auto;
     margin: 0 auto;
 }
@@ -966,7 +966,7 @@ h1, h2, h3, h4, .logo {
     }
 
     .about-logo {
-        height: 80px;
+        height: 112px; /* Updated from 80px to 112px (40% increase) */
     }
 
     .services-intro-section h1 {
