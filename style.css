@@ -39,10 +39,6 @@ h1, h2, h3, h4, .logo {
 
 /* Navigation */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     z-index: 1000;
@@ -57,6 +53,7 @@ h1, h2, h3, h4, .logo {
     padding: 0 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 
 .logo {
@@ -69,20 +66,28 @@ h1, h2, h3, h4, .logo {
 }
 
 .nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.nav-links a {
+.nav-links a:not(.btn-primary) {
     text-decoration: none;
     color: var(--gray-700);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:not(.btn-primary):hover {
     color: var(--primary);
+}
+
+.nav-links .btn-primary {
+    position: fixed;
+    right: calc((100% - 1200px) / 2 + 2rem);
 }
 
 /* Custom Checkbox Styles */
@@ -149,7 +154,7 @@ h1, h2, h3, h4, .logo {
 
 /* Hero Section */
 .hero {
-    padding: 160px 0 80px;
+    padding: 80px 0;
     background: var(--gray-100);
     text-align: center;
 }
@@ -178,7 +183,7 @@ h1, h2, h3, h4, .logo {
 
 /* About Page */
 .about-page {
-    padding: 160px 0 80px;
+    padding: 80px 0;
     background: var(--gray-100);
 }
 
@@ -301,7 +306,7 @@ h1, h2, h3, h4, .logo {
 
 /* Contact Page */
 .contact-page {
-    padding: 160px 0 80px;
+    padding: 80px 0;
     background: var(--gray-100);
 }
 
@@ -504,7 +509,7 @@ h1, h2, h3, h4, .logo {
 
 /* Blog Page Styles */
 .blog-page {
-    padding: 160px 0 80px;
+    padding: 80px 0;
     background: var(--gray-100);
 }
 
@@ -764,7 +769,7 @@ h1, h2, h3, h4, .logo {
 
 /* Services Page Styles */
 .services-page {
-    padding: 160px 0 80px;
+    padding: 80px 0;
     background: var(--gray-100);
 }
 
@@ -925,6 +930,12 @@ h1, h2, h3, h4, .logo {
         flex-direction: column;
         align-items: center;
         border-bottom: 1px solid var(--gray-200);
+        transform: none;
+    }
+
+    .nav-links .btn-primary {
+        position: static;
+        margin-top: 1rem;
     }
 
     .mobile-menu-btn {
