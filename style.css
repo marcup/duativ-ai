@@ -194,7 +194,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .about-logo {
-    height: 140px; /* Updated from 100px to 140px (40% increase) */
+    height: 140px;
     width: auto;
     margin: 0 auto;
 }
@@ -264,21 +264,31 @@ h1, h2, h3, h4, .logo {
 .founder-links {
     margin-top: 1rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.about-link {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: block;
+.social-icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray-800);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.about-link:hover {
-    color: #ff5a1f;
-    text-decoration: underline;
+.social-icon-link:hover {
+    transform: translateY(-2px);
+    background: var(--gray-900);
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%);
 }
 
 /* Contact Page */
@@ -966,7 +976,7 @@ h1, h2, h3, h4, .logo {
     }
 
     .about-logo {
-        height: 112px; /* Updated from 80px to 112px (40% increase) */
+        height: 112px;
     }
 
     .services-intro-section h1 {
@@ -980,5 +990,16 @@ h1, h2, h3, h4, .logo {
 
     .service-icon {
         height: 160px;
+    }
+
+    .social-icon-link {
+        width: 36px;
+        height: 36px;
+        background: var(--gray-800);
+    }
+
+    .social-icon {
+        width: 20px;
+        height: 20px;
     }
 }
